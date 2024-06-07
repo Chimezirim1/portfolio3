@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ogueji Praise Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      color: white;
+      padding: 30px 50px;
+    }
+    .navbar a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    padding: 30px;
+    text-decoration: none;
+    transition: all .1s ease-in-out;
+  }
+  
+    .navbar a:hover{
+      color: burlywood;
+      font-weight: bolder;
+      font-size: larger;
+    }
+    .navbar a:first-child {
+      margin-left: 0;
+    }
+    .welcome-text-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: burlywood;
+      text-align: center;
+      position: relative;
+      height: 100vh; /* Make it full viewport height */
+      overflow: hidden; /* Prevent content from overflowing */
+    }
+    .welcome-text {
+      font-size: 100px;
+      font-style: oblique;
+      font-weight: bold;
+      color: #333;
+      opacity: 0; /* Initially hidden */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.5s ease-in-out; /* Add transition for smooth fading */
+    }
+    .welcome-text.active {
+      opacity: 1; /* Make visible when active */
+    }
+
+    /* Responsive styling */
+    @media screen and (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+      }
+      .navbar a {
+        display: block;
+        padding: 10px;
+        margin: 10px 0;
+      }
+      .welcome-text {
+        font-size: 80px;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .navbar {
+        padding: 50px 100px;
+      }
+      .navbar a {
+        margin-left: 30px;
+        padding: 20px;
+      }
+      .welcome-text {
+        font-size: 123px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="left">Ogueji Praise</div>
+    <div class="right">
+      <a href="index.html" style="color: burlywood;">Home</a>
+      <a href="about_me.html">About Me</a>
+      <a href="contact_me.html">Contact Me</a>
+      <a href="portfolio.html">Portfolio</a>
+    </div>
+  </div>
+  <div class="welcome-text-container">
+    <p class="welcome-text" id="text1">Welcome to my<br>Portfolio</p>
+    <p class="welcome-text" id="text2">You can learn about me</p>
+    <p class="welcome-text" id="text3">You can contact me</p>
+    <p class="welcome-text" id="text4">Check out my Portfolio!</p>
+  </div>
+
+  <script>
+    const textElements = [
+      document.getElementById('text1'),
+      document.getElementById('text2'),
+      document.getElementById('text3'),
+      document.getElementById('text4')
+    ];
+
+    let currentTextIndex = 0;
+
+    function showText() {
+      // Hide the previous text
+      if (currentTextIndex > 0) {
+        textElements[currentTextIndex - 1].classList.remove('active');
+      }
+
+      // Show the current text
+      textElements[currentTextIndex].classList.add('active');
+
+      currentTextIndex++;
+
+      // If all texts have been shown, reset the index
+      if (currentTextIndex >= textElements.length) {
+        currentTextIndex = 0;
+      }
+    }
+
+    // Show the first text immediately
+    showText();
+
+    // Set a 5-second interval to show the next text
+    setInterval(showText, 5000);
+  </script>
+</body>
+</html>
+
+
+<!-- **Explanation of the Changes:**
+
+1. **CSS Updates:**
+   - **`welcome-text-container`:**
+     - `height: 100vh;` makes the container take up the full viewport height.
+     - `overflow: hidden;` prevents content from overflowing the container.
+   - **`welcome-text`:**
+     - `opacity: 0;` initially hides the text.
+     - `position: absolute;` and `transform: translate(-50%, -50%);` center the text on the screen.
+     - `transition: opacity 0.5s ease-in-out;` adds a smooth fade-in effect.
+     - `active` class: Added a class that will make the opacity 1 so that the text can be displayed.
+
+2. **HTML Updates:**
+   - **Multiple `welcome-text` elements:** Added separate `p` elements with unique IDs (`text1`, `text2`, `text3`, `text4`) for each text.
+
+3. **JavaScript Updates:**
+   - **`textElements` array:** Collects all the `welcome-text` elements into an array.
+   - **`currentTextIndex` variable:** Tracks which text is currently being displayed.
+   - **`showText()` function:**
+     - Hides the previous text by removing the `active` class.
+     - Shows the current text by adding the `active` class.
+     - Increments `currentTextIndex`.
+     - Resets `currentTextIndex` to 0 if all texts have been shown.
+   - **Initial Call to `showText()`:** Shows the first text immediately.
+   - **`setInterval()`:** Sets a 5-second interval to call the `showText()` function, which will cycle through the texts.
+
+**How it Works:**
+
+1. The CSS makes each text element initially hidden (`opacity: 0`) and positions them in the center of the screen.
+2. The JavaScript code:
+   - Uses an array to hold all the text elements.
+   - Defines a function `showText()` to control the display of the texts.
+   - Initially calls `showText()` to display the first text.
+   - Sets an interval to repeatedly call `showText()` every 5 seconds, effectively animating the display of the texts.
+
+Now, you'll see the texts appear and disappear smoothly with a 5-second delay between each. Let me know if you have any other questions! 😊  -->

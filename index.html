@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ogueji Praise Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      color: white;
+      padding: 30px 50px;
+    }
+    .navbar a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    padding: 30px;
+    text-decoration: none;
+    transition: all .1s ease-in-out;
+  }
+  
+    .navbar a:hover{
+      color: burlywood;
+      font-weight: bolder;
+    }
+    .navbar a:first-child {
+      margin-left: 0;
+    }
+    .welcome-text-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: burlywood;
+      text-align: center;
+      position: relative;
+      height: 72vh; /* Make it full viewport height */
+      overflow: hidden; /* Prevent content from overflowing */
+      padding-top: 80px; /* Add padding for space between navbar and texts */
+    }
+    .welcome-text {
+      font-size: 100px;
+      font-style: oblique;
+      font-weight: bold;
+      color: #333;
+      opacity: 0; /* Initially hidden */
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.5s ease-in-out; /* Add transition for smooth fading */
+    }
+    .welcome-text.active {
+      opacity: 1; /* Make visible when active */
+    }
+
+    /* FOOTER */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+     padding: 20px 5%;
+    background-color: rgb(194, 178, 128,0.8)
+  }
+
+.icon-container{
+    display: flex;
+    width: 100%;
+    align-items: start;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.icon-container img{
+    width: 40PX;
+    opacity: 0.5;
+}
+/* END OF FOOTER */
+
+    /* Responsive styling */
+    @media screen and (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+      }
+      .navbar a {
+        display: block;
+        padding: 10px;
+        margin: 10px 0;
+      }
+      .welcome-text {
+        font-size: 80px;
+      }
+      .welcome-text-container {
+        padding-top: 10px; /* Adjust padding for smaller screens */
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .navbar {
+        padding: 50px 100px;
+      }
+      .navbar a {
+        margin-left: 30px;
+        padding: 20px;
+      }
+      .welcome-text {
+        font-size: 123px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="left">Ogueji Praise</div>
+    <div class="right">
+      <a href="index.html" style="color: burlywood;">Home</a>
+      <a href="about_me.html">About Me</a>
+      <a href="contact_me.html">Contact Me</a>
+      <a href="portfolio.html">Projects</a>
+    </div>
+  </div>
+  <div class="welcome-text-container">
+    <p class="welcome-text" id="text1">Welcome to my<br>Portfolio</p>
+    <p class="welcome-text" id="text2">You can learn about me,</p>
+    <p class="welcome-text" id="text3">You can contact me,</p>
+    <p class="welcome-text" id="text4">Look at my previous works;</p>
+    <p class="welcome-text" id="text5">Welcome to my<br>Portfolio!</p>
+  </div>
+  <footer>
+    <div class="icon-container">
+        <a href="mailto: simplyJoyce@email.com"><img src="./images/gmail.png" alt=""></a>
+        <a href="https://t.me/lordeJoyce"><img src="./images/telegram.png" alt=""></a>
+        <a href="https://www.linkedin.com/in/zirim-ogueji-171112296/"><img src="./images/linkedin.png" alt=""></a>
+        <a href="https://www.facebook.com/profile.php?id=10008370911"><img src="./images/facebook.png" alt=""></a>
+        <a href="https://www.instagram.com/simplyjoyce/"><img src="./images/instagram.png" alt=""></a>
+        <a href=""><img src="./images/medium.png" alt=""></a>
+        <a href=""><img src="./images/whatsapp.png" alt=""></a>
+    </div>
+</footer>
+
+  <script>
+    const textElements = [
+      document.getElementById('text1'),
+      document.getElementById('text2'),
+      document.getElementById('text3'),
+      document.getElementById('text4'),
+      document.getElementById('text5')
+    ];
+
+    let currentTextIndex = 0;
+    let intervalId; // To store the interval ID
+
+    function showText() {
+      // Hide the previous text
+      if (currentTextIndex > 0) {
+        textElements[currentTextIndex - 1].classList.remove('active');
+      }
+
+      // Show the current text
+      textElements[currentTextIndex].classList.add('active');
+
+      currentTextIndex++;
+
+      // Stop the cycle after "Welcome to my Portfolio!"
+      if (currentTextIndex >= textElements.length) {
+        clearInterval(intervalId); // Clear the interval
+      }
+    }
+
+    // Show the first text immediately
+    showText();
+
+    // Set a 5-second interval to show the next text
+    intervalId = setInterval(showText, 5000); 
+  </script>
+</body>
+</html>

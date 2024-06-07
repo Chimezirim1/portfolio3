@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+        }
+        .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #333;
+          color: white;
+          padding: 30px 50px;
+        }
+        .navbar a {
+          text-decoration: none;
+          color: white;
+          margin-left: 20px;
+          padding: 30px;
+          text-decoration: none;
+          transition: all .1s ease-in-out;
+        }
+  
+        .navbar a:hover{
+          color: burlywood;
+          font-weight: bolder;
+        }
+        .navbar a:first-child {
+          margin-left: 0;
+        }
+        .welcome-text-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .welcome-text {
+          font-size: 130px;
+          text-align: center;
+        }
+        .left, .right a {
+            background-color: #333;
+        }
+    
+        /* Responsive styling */
+        @media screen and (max-width: 600px) {
+          .navbar {
+            flex-direction: column;
+            padding: 10px;
+            text-align: center;
+          }
+          .navbar a {
+            display: block;
+            padding: 10px;
+            margin: 10px 0;
+          }
+          .welcome-text {
+            font-size: 80px;
+          }
+        }
+    
+        @media screen and (min-width: 1200px) {
+          .navbar {
+            padding: 50px 100px;
+          }
+          .navbar a {
+            margin-left: 30px;
+            padding: 20px;
+          }
+          .welcome-text {
+            font-size: 160px;
+          }
+        }
+      </style>
+</head>
+<body>
+    <div class="container" style="background-color: #333;">
+        <div class="navbar">
+            <div class="left">Ogueji Praise</div>
+            <div class="right" style="background-color: #333;">
+                <a href="index.html">Home</a>
+                <a href="about_me.html">About Me</a>
+                <a href="contact_me.html">Contact Me</a>
+                <a href="portfolio.html" style="color: burlywood;">Projects</a>
+            </div>
+        </div>
+                <h1>My Projects</h1>
+                <h3>These are some of my works:</h3>
+            <div class="wrapper">
+                <div class="box"><img src="images/bakery.png" alt=""></div>
+                <div class="box"><img src="images/assignment.png" alt=""></div>
+                <div class="box"><img src="images/movix.png" alt=""></div>
+                <div class="box"><img src="images/bakery2.png" alt=""></div>
+                <div class="box"><img src="images/sign-in form.png" alt=""></div>
+                <div class="box"><img src="images/movix2.png" alt=""></div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
